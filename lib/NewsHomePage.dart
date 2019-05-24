@@ -1,16 +1,11 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+
+import 'package:flutter_news_reader/widgets/NewsItem.dart';
 
 class NewsHomePage extends StatefulWidget {
   NewsHomePage({Key key, this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
 
   final String title;
 
@@ -19,6 +14,75 @@ class NewsHomePage extends StatefulWidget {
 }
 
 class _NewsHomePageState extends State<NewsHomePage> {
+  final List<NewsItem> _items = <NewsItem>[];
+  var _responseBody;
+  bool _isLoading = true;
+
+  static const String apiKey = "c89e0acaf086411eb6c1745a9c7ff077";
+  static const String newsEndPoint = "https://newsapi.org/v2/";
+
+  String topHeadlinesUrl() =>
+      newsEndPoint + "top-headlines?country=us&apiKey=" + apiKey;
+
+  @override
+  void initState() {
+    _fetchNewsInfo();
+    super.initState();
+  }
+
+  _fetchNewsInfo() async {
+    var result = await http.get(Uri.encodeFull(topHeadlinesUrl()),
+        headers: {"Accept": "application/json"});
+    _responseBody = json.decode(result.body);
+    if (_responseBody['status'] == 'ok') {
+      _items.clear();
+
+      print(_responseBody['articles']);
+
+      for (var article in _responseBody['articles']) {
+        print(article);
+
+        _items.add(NewsItem(
+          sourceId: article['source']['id'],
+          sourceName: article['source']['name'],
+          author: article['author'],
+          title: article['title'],
+          description: article['description'],
+          url: article['url'],
+          urlToImage: article['urlToImage'],
+          publishedAt: article['publishedAt'],
+          content: article['content'],
+        ));
+      }
+
+      setState(() {
+        _isLoading = false;
+
+        print("setState: data is loaded");
+      });
+    } else {
+      print("Response error:" + _responseBody);
+    }
+  }
+
+  Widget _buildBody() {
+    if (_isLoading) {
+      return Center(
+        child: CircularProgressIndicator(),
+      );
+    } else {
+      return Column(
+        children: <Widget>[
+          Flexible(
+              child: ListView.builder(
+            itemBuilder: (_, int index) => _items[index],
+            itemCount: _items.length,
+          )),
+        ],
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,14 +92,7 @@ class _NewsHomePageState extends State<NewsHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-          ],
-        ),
+        child: _buildBody(),
       ),
     );
   }
