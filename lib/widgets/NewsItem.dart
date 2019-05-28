@@ -26,12 +26,12 @@ class NewsItem extends StatelessWidget {
       this.content})
       : super(key: key);
 
-  Widget _articleText(text) {
+  Widget _articleText(text, TextStyle style) {
     String formattedText = "n/a";
     if (text != null) {
       formattedText = text;
     }
-    return Text(formattedText);
+    return Text(formattedText, style: style);
   }
 
   Widget _articleImage(imageUrl) {
@@ -45,16 +45,18 @@ class NewsItem extends StatelessWidget {
     }
   }
 
-  Widget _articleDate(String textDate) {
+  Widget _articleDate(String textDate, TextStyle style) {
     String formattedText = "n/a";
     if (textDate != null) {
       formattedText = textDate.substring(0, 10);
     }
-    return Text(formattedText);
+    return Text(formattedText, style: style);
   }
 
   @override
   Widget build(BuildContext context) {
+    final TextTheme textTheme = Theme.of(context).textTheme;
+
     return Card(
       elevation: 5.0,
       child: Padding(
@@ -64,21 +66,21 @@ class NewsItem extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                _articleText(sourceName),
-                _articleDate(publishedAt),
+                _articleText(sourceName, textTheme.subhead),
+                _articleDate(publishedAt, textTheme.body2),
               ],
             ),
             Column(
               children: <Widget>[
-                _articleText(title),
+                _articleText(title, textTheme.title),
                 _articleImage(urlToImage),
               ],
             ),
-            _articleText(description),
+            _articleText(description, textTheme.subtitle),
             ExpansionTile(
               title: Text("more..."),
               children: <Widget>[
-                _articleText(content),
+                _articleText(content, textTheme.body1),
                 RaisedButton(
                     child: Text("Read full"),
                     onPressed: () {
