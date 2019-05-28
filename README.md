@@ -27,6 +27,7 @@
 <img src="https://img.shields.io/badge/platform-iOS-lightgrey.svg" alt="Platforms">
 <a href="https://flutter.dev">
 <img src="https://img.shields.io/badge/platform-Android-lightgrey.svg" alt="Platforms">
+</div>
 
 <div align="center">
 <sub><a href="https://svasilevkin.wordpress.com/">Crafted with ❤︎ by Sergey Vasilevkin</a></sub>
