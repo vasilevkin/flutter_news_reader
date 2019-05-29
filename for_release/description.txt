@@ -1,0 +1,32 @@
+Flutter News Reader
+
+
+Keywords:
+news, news reader, latest news
+
+Description:
+Flutter News Reader is a Flutter app that presents latest news.
+Created with Flutter framework and material UI library.
+
+Disclaimer:
+News client powered by NewsAPI.org
+The app uses the NewsAPI.org but is neither endorsed nor certified by NewsAPI.org:
+https://newsapi.org/terms
+
+Promo subtitle:
+Discover latest news
+
+Support URL:
+https://svasilevkin.wordpress.com/contact-me/
+
+Marketing URL:
+https://svasilevkin.wordpress.com/my-apps/
+
+Copyright:
+2019 Sergey Vasilevkin
+
+Privacy Policy:
+http://htmlpreview.github.io/?https://github.com/vasilevkin/flutter_news_reader/blob/master/privacy_policy.html
+
+Category:
+Entertainment
