@@ -37,10 +37,10 @@ class _NewsHomePageState extends State<NewsHomePage> {
     if (_responseBody['status'] == 'ok') {
       _items.clear();
 
-      print(_responseBody['articles']);
+//      print(_responseBody['articles']);
 
       for (var article in _responseBody['articles']) {
-        print(article);
+//        print(article);
 
         _items.add(NewsItem(
           sourceId: article['source']['id'],
@@ -58,7 +58,7 @@ class _NewsHomePageState extends State<NewsHomePage> {
       setState(() {
         _isLoading = false;
 
-        print("setState: data is loaded");
+//        print("setState: data is loaded");
       });
     } else {
       print("Response error:" + _responseBody);
