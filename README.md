@@ -4,11 +4,8 @@
 
 <div align="center">
 <!-- Travis CI -->
-
-<!--
 <a href="https://travis-ci.org/vasilevkin/flutter_news_reader">
 <img src="https://travis-ci.org/vasilevkin/flutter_news_reader.svg?branch=master" alt="Travis CI">
--->
 
 <!-- Last commit -->
 <a href="https://github.com/vasilevkin/flutter_news_reader/commits/master">
