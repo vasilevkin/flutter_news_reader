@@ -5,6 +5,7 @@ Keywords:
 news, news reader, latest news
 
 Description:
+Android Full description:
 Flutter News Reader is a Flutter app that presents latest news.
 Created with Flutter framework and material UI library.
 
@@ -14,12 +15,14 @@ The app uses the NewsAPI.org but is neither endorsed nor certified by NewsAPI.or
 https://newsapi.org/terms
 
 Promo subtitle:
+Android Short description:
 Discover latest news
 
 Support URL:
 https://svasilevkin.wordpress.com/contact-me/
 
 Marketing URL:
+Android Website:
 https://svasilevkin.wordpress.com/my-apps/
 
 Copyright:
@@ -28,5 +31,25 @@ Copyright:
 Privacy Policy:
 http://htmlpreview.github.io/?https://github.com/vasilevkin/flutter_news_reader/blob/master/privacy_policy.html
 
+Email:
+svasilevkin@gmail.com
+
 Category:
 News
+
+
+Android:
+Language:
+en-US
+
+Application type:
+Applications
+
+Category:
+News & Magazines
+
+
+
+
+https://play.google.com/store/apps/details?id=com.svsofta.flutternewsreader
+
