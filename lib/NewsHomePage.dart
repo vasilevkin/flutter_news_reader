@@ -22,17 +22,20 @@ class _NewsHomePageState extends State<NewsHomePage> {
   static const String newsEndPoint = "https://newsapi.org/v2/";
 
   String topHeadlinesUrl() =>
-      newsEndPoint + "top-headlines?country=us&apiKey=" + apiKey;
+      newsEndPoint + "top-headlines?country=us&category=";
 
   @override
   void initState() {
-    _fetchNewsInfo();
+    _fetchNewsInfo('');
     super.initState();
   }
 
-  _fetchNewsInfo() async {
-    var result = await http.get(Uri.encodeFull(topHeadlinesUrl()),
-        headers: {"Accept": "application/json"});
+  _fetchNewsInfo(String category) async {
+    var result = await http.get(Uri.encodeFull(topHeadlinesUrl() + category),
+        headers: {
+          "Accept": "application/json",
+          "X-Api-Key": "c89e0acaf086411eb6c1745a9c7ff077"
+        });
     _responseBody = json.decode(result.body);
     if (_responseBody['status'] == 'ok') {
       _items.clear();
