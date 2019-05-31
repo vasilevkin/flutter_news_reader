@@ -37,6 +37,10 @@
 
 A News Reader app created with Flutter for mobile (Android and iOS), desktop and web.
 
+<p align="center">
+<a href="https://play.google.com/store/apps/details?id=com.svsofta.flutternewsreader">
+<img class=" aligncenter" title="Play Market" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" alt="Get it on Google Play Flutter News Reader" width="160" /></a>
+</p>
 
 <h1 align="center">👷 Work in progress 🛠️</h1>
 
