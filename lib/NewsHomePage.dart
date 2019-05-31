@@ -93,9 +93,78 @@ class _NewsHomePageState extends State<NewsHomePage> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+            },
+          ),
+        ],
       ),
       body: Center(
         child: _buildBody(),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          physics: AlwaysScrollableScrollPhysics(),
+          children: <Widget>[
+            DrawerHeader(
+              child: Text("News category"),
+            ),
+            RaisedButton(
+              child: Text("All"),
+              onPressed: () {
+                _fetchNewsInfo('');
+              },
+            ),
+            RaisedButton(
+              child: Text("General"),
+              onPressed: () {
+                _fetchNewsInfo('general');
+              },
+            ),
+            RaisedButton(
+              child: Text("Business"),
+              onPressed: () {
+                _fetchNewsInfo('business');
+              },
+            ),
+            RaisedButton(
+              child: Text("Technology"),
+              onPressed: () {
+                _fetchNewsInfo('technology');
+              },
+            ),
+            RaisedButton(
+              child: Text("Sports"),
+              onPressed: () {
+                _fetchNewsInfo('sports');
+              },
+            ),
+            RaisedButton(
+              child: Text("Entertainment"),
+              onPressed: () {
+                _fetchNewsInfo('entertainment');
+              },
+            ),
+            RaisedButton(
+              child: Text("Health"),
+              onPressed: () {
+                _fetchNewsInfo('health');
+              },
+            ),
+            RaisedButton(
+              child: Text("Science"),
+              onPressed: () {
+                _fetchNewsInfo('science');
+              },
+            ),
+            Divider(),
+            ListTile(
+              title: Text("About"),
+            )
+          ],
+        ),
       ),
     );
   }
